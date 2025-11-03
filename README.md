@@ -1,36 +1,37 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Dapper
 
-## Getting Started
+<p align="left">
+  <img src="https://dapper-inky.vercel.app/dapper-logo" alt="Dapper logo" height="120" />
+</p>
 
-First, run the development server:
+## What is Dapper?
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Dapper lets users make a time-locked stake, similar to a term deposit (Certificate of Deposit). You choose an amount and a duration. You mint the yield up front, and at the end of the term you can withdraw your principal.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### How it works
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Stake selection**: Choose your stake amount and term duration on the staking page. The UI is implemented in `src/app/stake/page.tsx` and `src/components/staking-interface.tsx`.
+- **Up-front yield minting**: When you start the position, the corresponding yield is minted to you up front.
+- **During the term**: Funds are placed into [August yield vaults](https://mezo.org/explore/vaults/pools/0x221B2D9aD7B994861Af3f4c8A80c86C4aa86Bf53) to generate yield throughout the lock period.
+- **End of term**: When the term ends, you can withdraw your full principal.
+- **Excess yield**: Since the vaults generate more yield than is required to repay principal at maturity, the excess yield is directed to the Dapper treasury.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Get started
 
-## Learn More
+- **Make a stake**: Go to the staking page → [/stake](/stake).  
+  Source: `src/app/stake/page.tsx`.
+- **Join the treasury**: Participate in the treasury → [/treasury](/treasury).  
+  Source: `src/app/treasury/page.tsx`.
 
-To learn more about Next.js, take a look at the following resources:
+### Pages
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Home: `src/app/page.tsx` → [/ ](/)
+- Stake: `src/app/stake/page.tsx` → [/stake](/stake)
+- Treasury: `src/app/treasury/page.tsx` → [/treasury](/treasury)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Other notable repositories
 
-## Deploy on Vercel
+- [Dapper Contracts Repo](https://github.com/jack-landon/dapper-contracts)
+- [Dapper Indexer Repo](https://github.com/jack-landon/dapper-indexer)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
