@@ -1,7 +1,7 @@
 # Dapper
 
 <p align="left">
-  <img src="https://dapper-inky.vercel.app/dapper-logo" alt="Dapper logo" height="120" />
+  <img src="https://dapper-inky.vercel.app/dapper-logo.jpeg" alt="Dapper logo" height="120" />
 </p>
 
 ## What is Dapper?
