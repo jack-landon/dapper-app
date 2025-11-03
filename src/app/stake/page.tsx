@@ -1,14 +1,12 @@
 import { Navigation } from "@/components/navigation";
-import { HeroSection } from "@/components/hero-section";
 import { StakingInterface } from "@/components/staking-interface";
 import { Footer } from "@/components/footer";
 
-export default function Home() {
+export default function StakePage() {
   return (
     <main className="min-h-screen">
       <Navigation />
-      <HeroSection />
-      <StakingInterface />
+      <StakingInterface showLogoHeader />
       <Footer />
     </main>
   );
