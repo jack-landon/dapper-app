@@ -554,7 +554,7 @@ export function StakingInterface({ showLogoHeader = false }: Props) {
                     <div className="space-y-2 pb-4 border-b border-border">
                       <div className="flex items-center justify-between">
                         <div className="space-y-1">
-                          <div className="text-lg text-primary font-bold text-shadow-lg">
+                          <div className="text-lg text-primary font-bold text-shadow-lg/10">
                             You Receive <span className="">Now</span>
                           </div>
                           <div className="text-xs text-muted-foreground">
@@ -562,7 +562,7 @@ export function StakingInterface({ showLogoHeader = false }: Props) {
                           </div>
                         </div>
                         <div className="text-right">
-                          <p className="text-2xl font-bold text-green-600 text-shadow-lg">
+                          <p className="text-2xl font-bold text-green-600 text-shadow-lg/10">
                             +{calculateInstantYield()} {selectedToken.symbol}
                           </p>
                           <p className="text-xs text-muted-foreground">

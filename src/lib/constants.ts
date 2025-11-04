@@ -15,22 +15,6 @@ export const TOKENS: Token[] = [
     apy: 10,
     icon: "https://s2.coinmarketcap.com/static/img/coins/64x64/1.png",
   },
-  //   {
-  //     address: "0xdf6734d11ee027cCC4d7f32ecE5162b0c4018aB0",
-  //     vaultAddress: process.env.NEXT_PUBLIC_DAPPER_ADDRESS as Address,
-  //     symbol: "USDC",
-  //     name: "USD Coin",
-  //     apy: 8.2,
-  //     icon: "https://s2.coinmarketcap.com/static/img/coins/64x64/1.png",
-  //   },
-  //   {
-  //     address: "0x1699A1838f24b1b5D55BB1098E38F82F7C8D8571",
-  //     vaultAddress: process.env.NEXT_PUBLIC_DAPPER_ADDRESS as Address,
-  //     symbol: "DAI",
-  //     name: "Dai",
-  //     apy: 9.5,
-  //     icon: "◈",
-  //   },
 ] as const;
 
 export const DURATIONS = [

@@ -52,7 +52,7 @@ export function StakeCard({
   const { writeContractAsync } = useWriteContract();
 
   const depositToken = TOKENS.find(
-    (token) => token.address === stake.tokenAddress
+    (token) => token.address.toLowerCase() === stake.tokenAddress.toLowerCase()
   );
   const [timeRemaining, setTimeRemaining] = useState<string>("");
   const [isUnlocked, setIsUnlocked] = useState(false);

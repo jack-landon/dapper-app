@@ -5,7 +5,7 @@ export async function getVaults() {}
 export async function getUser(address: string) {
   const query = `
 query UserDetails {
-  User_by_pk(id: "${address}") {
+  User_by_pk(id: "${address.toLowerCase()}") {
     stakes(order_by: {depositTimestamp: desc}) {
       id
       stakeId
@@ -53,6 +53,9 @@ query UserDetails {
       } | null;
     };
   };
+
+  console.log("About to show user");
+  console.log(results.data.User_by_pk);
 
   if (!results.data.User_by_pk) {
     return [];
@@ -119,10 +122,14 @@ query TreasuryDetails {
   console.log(results.data.BeneficiaryVault);
 
   const musdTreasury = results.data.BeneficiaryVault.find(
-    (vault) => vault.tokenAddress === process.env.NEXT_PUBLIC_MUSD_ADDRESS
+    (vault) =>
+      vault.tokenAddress.toLocaleLowerCase() ===
+      (process.env.NEXT_PUBLIC_MUSD_ADDRESS as Address).toLowerCase()
   );
   const btcTreasury = results.data.BeneficiaryVault.find(
-    (vault) => vault.tokenAddress === process.env.NEXT_PUBLIC_BTC_ADDRESS
+    (vault) =>
+      vault.tokenAddress.toLowerCase() ===
+      (process.env.NEXT_PUBLIC_BTC_ADDRESS as Address).toLowerCase()
   );
 
   if (!musdTreasury || !btcTreasury) throw new Error("Treasury not found");

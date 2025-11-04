@@ -28,13 +28,14 @@ export function Footer() {
             </p>
             <div className="flex gap-4">
               <a
-                href="#"
+                href="https://x.com/JackLandonX"
                 className="w-10 h-10 rounded-lg bg-secondary hover:bg-primary/20 flex items-center justify-center transition-colors"
               >
                 <Twitter className="w-5 h-5" />
               </a>
               <a
-                href="#"
+                href="https://github.com/jack-landon/dapper-app"
+                target="_blank"
                 className="w-10 h-10 rounded-lg bg-secondary hover:bg-primary/20 flex items-center justify-center transition-colors"
               >
                 <Github className="w-5 h-5" />
