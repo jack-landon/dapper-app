@@ -19,6 +19,7 @@ import { Spinner } from "@/components/ui/spinner";
 import { createPortal } from "react-dom";
 import { TOKENS } from "@/lib/constants";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
+import Image from "next/image";
 
 dayjs.extend(duration);
 
@@ -263,31 +264,45 @@ export function StakeCard({
       <div className="relative space-y-4">
         {/* Row 1: Main info */}
         <div className="flex items-center justify-between gap-4">
-          {/* Left side: Amount and Interest */}
-          <div className="flex flex-col gap-1">
-            <div className="flex items-center gap-2">
-              <Avatar className="mb-2">
-                <AvatarImage
-                  src={depositToken?.icon}
-                  alt={depositToken?.symbol}
+          <div className="flex items-start gap-3">
+            <div className="relative rounded-lg p-[2px] bg-linear-to-br from-blue-500 via-purple-500 to-pink-500 shadow-[0_0_22px_rgba(168,85,247,0.55)]">
+              <div className="pointer-events-none absolute inset-0 rounded-lg bg-linear-to-br from-blue-500/30 via-purple-500/30 to-pink-500/30 blur-md animate-pulse" />
+              <div className="relative rounded-md overflow-hidden bg-background">
+                <Image
+                  src={`https://api.dicebear.com/9.x/open-peeps/svg?seed=${stake.id}`}
+                  alt="Stake avatar"
+                  width={60}
+                  height={60}
+                  unoptimized
+                  className="object-contain shrink-0"
                 />
-                <AvatarFallback>{depositToken?.symbol}</AvatarFallback>
-              </Avatar>
-              <div className="flex items-baseline gap-2">
-                <span className="font-bold text-2xl text-foreground">
-                  {toSignificant(amountStaked)}
-                </span>
-                <span className="text-sm font-medium text-muted-foreground">
-                  {depositToken?.symbol}
-                </span>
               </div>
             </div>
-            <div className="flex items-center gap-1.5 text-sm text-primary">
-              <TrendingUp className="w-3.5 h-3.5" />
-              <span className="font-medium">
-                +{toSignificant(interestPaid)} {depositToken?.symbol} interest
-                earned
-              </span>
+            <div className="flex flex-col gap-1">
+              <div className="flex items-center gap-2">
+                <Avatar className="mb-2">
+                  <AvatarImage
+                    src={depositToken?.icon}
+                    alt={depositToken?.symbol}
+                  />
+                  <AvatarFallback>{depositToken?.symbol}</AvatarFallback>
+                </Avatar>
+                <div className="flex items-baseline gap-2">
+                  <span className="font-bold text-2xl text-foreground">
+                    {toSignificant(amountStaked)}
+                  </span>
+                  <span className="text-sm font-medium text-muted-foreground">
+                    {depositToken?.symbol}
+                  </span>
+                </div>
+              </div>
+              <div className="flex items-center gap-1.5 text-sm text-primary">
+                <TrendingUp className="w-3.5 h-3.5" />
+                <span className="font-medium">
+                  +{toSignificant(interestPaid)} {depositToken?.symbol} interest
+                  earned
+                </span>
+              </div>
             </div>
           </div>
 
@@ -361,7 +376,11 @@ export function StakeCard({
               <div className="flex items-center gap-1.5 text-muted-foreground">
                 <TrendingUp className="w-3.5 h-3.5" />
                 <span className="text-xs font-medium uppercase tracking-wide">
-                  Unlocks
+                  {isWithdrawn
+                    ? "Withdrawn"
+                    : dayjs().isAfter(dayjs(unlockTimestamp))
+                    ? "Unlocked"
+                    : "Unlocks"}
                 </span>
               </div>
               <div className="font-medium text-foreground">

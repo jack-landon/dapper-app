@@ -5,6 +5,8 @@ import type { Metadata } from "next";
 import { Providers } from "@/components/providers";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
+import { Navigation } from "@/components/navigation";
+import { Footer } from "@/components/footer";
 
 // const _geist = Geist({ subsets: ["latin"] });
 // const _geistMono = Geist_Mono({ subsets: ["latin"] });
@@ -23,7 +25,11 @@ export default function RootLayout({
     <html lang="en">
       <body className={`font-sans antialiased dark`}>
         <Toaster richColors />
-        <Providers>{children}</Providers>
+        <Providers>
+          <Navigation />
+          {children}
+          <Footer />
+        </Providers>
         {/* <Analytics /> */}
       </body>
     </html>

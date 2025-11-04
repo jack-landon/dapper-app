@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { Coins } from "lucide-react";
+import { Coins, LayoutGrid } from "lucide-react";
 import { WalletButton } from "@/components/wallet-button";
 import { Icon } from "lucide-react";
 import { mustache } from "@lucide/lab";
@@ -54,6 +54,19 @@ export function Navigation() {
               >
                 <Coins className="h-4 w-4" />
                 Join the Treasury
+              </Button>
+            </Link>
+            <Link href="/stake-wall">
+              <Button
+                variant={pathname === "/stake-wall" ? "default" : "ghost"}
+                className={
+                  pathname === "/stake-wall"
+                    ? "gap-2 bg-primary/20 text-primary shadow-[0_0_20px_rgba(0,255,255,0.2)] hover:bg-primary/30"
+                    : "gap-2 text-muted-foreground hover:text-foreground"
+                }
+              >
+                <LayoutGrid className="h-4 w-4" />
+                Stake Wall
               </Button>
             </Link>
             <div className="ml-2">

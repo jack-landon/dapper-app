@@ -139,3 +139,56 @@ query TreasuryDetails {
     btcTreasury,
   };
 }
+
+export async function getStakeWall() {
+  const query = `
+query StakeWall {
+  Stake(order_by: {depositTimestamp: desc}) {
+    id
+    stakeId
+    amountStaked
+    user_id
+    depositTimestamp
+    depositTxHash
+    interestPaid
+    lockDuration
+    unlockTimestamp
+    withdrawTimestamp
+    withdrawTxHash
+    tokenAddress
+    vaultAddress
+  }
+}
+    `;
+
+  const result = await fetch(process.env.INDEXER_BASE_URL as string, {
+    method: "POST",
+    body: JSON.stringify({
+      query: query,
+      variables: {},
+      operationName: "StakeWall",
+    }),
+  });
+
+  const results = (await result.json()) as {
+    data: {
+      Stake: {
+        id: string;
+        stakeId: string;
+        amountStaked: string;
+        user_id: string;
+        depositTimestamp: string;
+        depositTxHash: string;
+        interestPaid: string;
+        lockDuration: string;
+        unlockTimestamp: string;
+        withdrawTimestamp: string;
+        withdrawTxHash: string;
+        tokenAddress: string;
+        vaultAddress: string;
+      }[];
+    };
+  };
+
+  return results.data.Stake;
+}

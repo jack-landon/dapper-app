@@ -61,6 +61,7 @@ import { toSignificant } from "@/lib/utils";
 import Link from "next/link";
 import { createPortal } from "react-dom";
 import { getTreasuries } from "@/server/get";
+import { LoaderFive, LoaderThree } from "./loaders";
 
 dayjs.extend(relativeTime);
 
@@ -1056,7 +1057,10 @@ export function TreasuryVaults() {
 
         {isLoading ? (
           <div className="mx-auto max-w-6xl flex items-center justify-center py-12">
-            <Spinner className="w-10 h-10 text-muted-foreground" />
+            <div className="flex flex-col items-center justify-center gap-4">
+              <LoaderThree />
+              <LoaderFive text="Loading treasury vaults..." />
+            </div>
           </div>
         ) : treasuries ? (
           <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-2">
