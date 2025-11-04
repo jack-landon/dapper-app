@@ -113,7 +113,10 @@ function TreasuryCard({
   const { address, isConnected } = useAccount();
   const vaultAddress = treasury.id as Address;
   const tokenAddress = treasury.tokenAddress as Address;
-  const token = TOKENS.find((token) => token.address === treasury.tokenAddress);
+  const token = TOKENS.find(
+    (token) =>
+      token.address.toLowerCase() === treasury.tokenAddress.toLowerCase()
+  );
 
   const [depositAmount, setDepositAmount] = useState("");
   const [redeemShares, setRedeemShares] = useState("");
