@@ -25,14 +25,13 @@ export function HeroSection() {
 
           {/* Main headline */}
           <h1 className="text-5xl md:text-7xl font-bold mb-6 text-balance leading-tight">
-            Get Your <span className="text-primary glow-text">Interest</span>
+            A <span className="text-primary glow-text">Term Deposit</span>
             <br />
-            Instantly
+            for the <span className="underline">impatient</span>
           </h1>
 
           <p className="text-xl md:text-2xl text-muted-foreground mb-12 text-pretty max-w-2xl leading-relaxed">
-            Deposit your crypto and receive all your yield upfront. The future
-            of DeFi is instant gratification.
+            Stake your crypto and receive all yield upfront.
           </p>
 
           {/* CTA Buttons */}

@@ -139,6 +139,52 @@ export function StakingInterface({ showLogoHeader = false }: Props) {
     return toSignificant(yield_);
   };
 
+  const calculateReturnForDuration = (
+    value: number | string,
+    durationUnit: "days" | "hours" | "minutes"
+  ) => {
+    if (!amount || isNaN(Number(amount))) return "0.00";
+    if (!value || isNaN(Number(value))) return "0.00";
+    const principal = Number(amount);
+    const durationValue = Number(value);
+    let seconds: number;
+    switch (durationUnit) {
+      case "hours":
+        seconds = durationValue * 3600; // hours to seconds
+        break;
+      case "minutes":
+        seconds = durationValue * 60; // minutes to seconds
+        break;
+      default:
+        seconds = durationValue * 86400; // days to seconds
+    }
+    const apy = selectedToken.apy;
+    const yield_ = (principal * apy * seconds) / (365 * 24 * 3600 * 100); // APY * seconds / seconds in a year * 100
+    return toSignificant(yield_, 2);
+  };
+
+  const calculatePercentageReturnForDuration = (
+    value: number | string,
+    durationUnit: "days" | "hours" | "minutes"
+  ) => {
+    if (!value || isNaN(Number(value))) return "0.00";
+    const durationValue = Number(value);
+    let days: number;
+    switch (durationUnit) {
+      case "hours":
+        days = durationValue / 24; // hours to days
+        break;
+      case "minutes":
+        days = durationValue / (24 * 60); // minutes to days
+        break;
+      default:
+        days = durationValue;
+    }
+    const apy = selectedToken.apy;
+    const percentageReturn = (apy * days) / 365; // APY * days / days in a year
+    return toSignificant(percentageReturn, 2);
+  };
+
   const handleMaxClick = () => {
     if (balance) {
       setAmount(formatUnits(balance.value, balance.decimals));
@@ -431,7 +477,7 @@ export function StakingInterface({ showLogoHeader = false }: Props) {
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                       {DURATIONS.map((dur) => (
                         <button
-                          key={dur.days}
+                          key={dur.value}
                           onClick={() => {
                             setDurationValue(dur.days.toString());
                             setDurationUnit("days");
@@ -447,7 +493,15 @@ export function StakingInterface({ showLogoHeader = false }: Props) {
                         >
                           <div className="font-bold">{dur.label}</div>
                           <div className="text-xs text-muted-foreground">
-                            {selectedToken.apy}% APY
+                            {amount && !isNaN(Number(amount))
+                              ? `+${calculateReturnForDuration(
+                                  dur.days,
+                                  "days"
+                                )} ${selectedToken.symbol}`
+                              : `${calculatePercentageReturnForDuration(
+                                  dur.days,
+                                  "days"
+                                )}% return`}
                           </div>
                         </button>
                       ))}
@@ -500,16 +554,25 @@ export function StakingInterface({ showLogoHeader = false }: Props) {
                     <div className="space-y-2 pb-4 border-b border-border">
                       <div className="flex items-center justify-between">
                         <div className="space-y-1">
-                          <div className="text-sm text-primary font-bold">
+                          <div className="text-lg text-primary font-bold text-shadow-lg">
                             You Receive <span className="">Now</span>
                           </div>
                           <div className="text-xs text-muted-foreground">
                             Instant yield paid upfront
                           </div>
                         </div>
-                        <span className="text-2xl font-bold text-green-600">
-                          +{calculateInstantYield()} {selectedToken.symbol}
-                        </span>
+                        <div className="text-right">
+                          <p className="text-2xl font-bold text-green-600 text-shadow-lg">
+                            +{calculateInstantYield()} {selectedToken.symbol}
+                          </p>
+                          <p className="text-xs text-muted-foreground">
+                            {calculatePercentageReturnForDuration(
+                              durationValue,
+                              durationUnit
+                            )}
+                            %
+                          </p>
+                        </div>
                       </div>
                     </div>
 

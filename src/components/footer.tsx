@@ -21,8 +21,10 @@ export function Footer() {
               <span className="text-2xl font-bold">Dapper</span>
             </div>
             <p className="text-muted-foreground mb-4 max-w-md leading-relaxed">
-              The future of DeFi yield generation. Get your interest upfront and
-              unlock the power of instant gratification.
+              A term deposit for the impatient.
+              <br />
+              Get your interest upfront and feel the delight of instant
+              gratification.
             </p>
             <div className="flex gap-4">
               <a
