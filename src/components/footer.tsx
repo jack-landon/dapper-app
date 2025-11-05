@@ -1,6 +1,7 @@
 import { Twitter, Github, MessageCircle } from "lucide-react";
 import { Icon } from "lucide-react";
 import { mustache } from "@lucide/lab";
+import LogoHeader from "./LogoHeader";
 
 export function Footer() {
   return (
@@ -11,15 +12,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Brand */}
           <div className="col-span-1 md:col-span-2">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-                <Icon
-                  iconNode={mustache}
-                  className="w-6 h-6 text-primary-foreground"
-                />
-              </div>
-              <span className="text-2xl font-bold">Dapper</span>
-            </div>
+            <LogoHeader />
             <p className="text-muted-foreground mb-4 max-w-md leading-relaxed">
               A term deposit for the impatient.
               <br />

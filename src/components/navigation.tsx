@@ -18,9 +18,9 @@ export function Navigation() {
           {/* Logo */}
           <Link
             href="/"
-            className="flex items-center gap-2 transition-opacity hover:opacity-80"
+            className="flex items-center gap-4 transition-opacity hover:opacity-80"
           >
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary shadow-[0_0_20px_rgba(0,255,255,0.3)]">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary shadow-[0_0_20px_rgba(0,255,255,0.3)]">
               <Icon
                 iconNode={mustache}
                 className="h-6 w-6 text-primary-foreground"
