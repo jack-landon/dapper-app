@@ -1,6 +1,5 @@
 import { cookieStorage, createStorage } from "wagmi";
 import { WagmiAdapter } from "@reown/appkit-adapter-wagmi";
-import { sepolia } from "@reown/appkit/networks";
 import { mezoTestnetNetwork } from "../mezoTestnetWalletNetwork";
 
 export const wagmiAdapter = new WagmiAdapter({
@@ -9,7 +8,7 @@ export const wagmiAdapter = new WagmiAdapter({
   }),
   ssr: true,
   projectId: process.env.NEXT_PUBLIC_REOWN_PROJECT_ID as string,
-  networks: [mezoTestnetNetwork, sepolia],
+  networks: [mezoTestnetNetwork],
 });
 
 export const wagmiConfig = wagmiAdapter.wagmiConfig;
