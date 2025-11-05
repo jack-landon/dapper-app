@@ -24,7 +24,7 @@ export function HeroSection() {
           <LogoHeader />
 
           {/* Main headline */}
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 text-balance leading-tight">
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 text-balance leading-tight text-shadow-lg/30">
             A <span className="text-primary glow-text">Term Deposit</span>
             <br />
             for the <span className="underline">impatient</span>
@@ -39,7 +39,7 @@ export function HeroSection() {
             <Button
               onClick={scrollToStakingSection}
               size="lg"
-              className="text-lg px-8 py-6 glow-effect group"
+              className="text-lg px-8 py-6 glow-effect group font-bold shadow-lg/20 text-shadow-lg/10"
             >
               Get Upfront Yield Now
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -48,7 +48,7 @@ export function HeroSection() {
               <Button
                 size="lg"
                 variant="outline"
-                className="text-lg px-8 py-6 border-primary/50 hover:bg-primary/10 bg-transparent"
+                className="text-lg px-8 py-6 hover:text-primary-foreground border-primary/50 font-bold"
               >
                 Join the Treasury
               </Button>

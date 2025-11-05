@@ -13,7 +13,7 @@ export function TreasuryHero() {
       <div className="container relative mx-auto px-4 py-16 md:py-24">
         <div className="flex flex-col items-center mx-auto max-w-4xl text-center">
           {/* <LogoHeader /> */}
-          <div className="mb-6 inline-flex items-center gap-3 rounded-full border border-primary/30 bg-primary/5 px-6 py-2 backdrop-blur-sm">
+          <div className="mb-6 inline-flex items-center gap-3 rounded-full border border-primary/30 bg-primary/5 px-6 py-2 backdrop-blur-sm shadow-lg/20">
             <Coins className="h-5 w-5 text-primary" />
             <span className="text-sm font-medium text-primary">
               Treasury Portal
