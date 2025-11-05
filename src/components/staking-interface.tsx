@@ -334,7 +334,7 @@ export function StakingInterface({ showLogoHeader = false }: Props) {
           <div className="text-center mb-12">
             <div className="flex flex-col items-center justify-center">
               {showLogoHeader && <LogoHeader />}
-              <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              <h2 className="text-4xl md:text-5xl font-bold mb-4 text-shadow-lg/70">
                 Get Future Yield <span className="text-primary">Instantly</span>
               </h2>
             </div>

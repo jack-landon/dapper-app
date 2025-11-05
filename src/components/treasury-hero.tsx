@@ -20,7 +20,7 @@ export function TreasuryHero() {
             </span>
           </div>
 
-          <h1 className="mb-6 text-balance font-bold text-5xl text-foreground md:text-7xl">
+          <h1 className="mb-6 text-balance font-bold text-5xl text-foreground md:text-7xl text-shadow-lg">
             Treasury Receives
             <span className="block bg-linear-to-r from-primary via-cyan-400 to-primary bg-clip-text text-transparent">
               Excess Yield & Fees

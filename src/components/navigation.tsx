@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { Coins, LayoutGrid } from "lucide-react";
+import { BanknoteArrowDown, Coins, LayoutGrid } from "lucide-react";
 import { WalletButton } from "@/components/wallet-button";
 import { Icon } from "lucide-react";
 import { mustache } from "@lucide/lab";
@@ -40,6 +40,7 @@ export function Navigation() {
                     : "text-muted-foreground hover:text-foreground"
                 }
               >
+                <BanknoteArrowDown className="h-4 w-4" />
                 Stake
               </Button>
             </Link>

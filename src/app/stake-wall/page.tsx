@@ -10,6 +10,7 @@ import duration from "dayjs/plugin/duration";
 import { Calendar, Clock, TrendingUp } from "lucide-react";
 import { LoaderFive, LoaderThree } from "@/components/loaders";
 import { useAccount } from "wagmi";
+import LogoHeader from "@/components/LogoHeader";
 dayjs.extend(duration);
 
 export default function StakeWallPage() {
@@ -77,8 +78,9 @@ export default function StakeWallPage() {
           <div className="absolute bottom-16 right-1/4 w-80 h-80 bg-accent/20 rounded-full blur-[100px] animate-pulse delay-1000" />
 
           <div className="relative container mx-auto px-4 py-14 md:py-18">
-            <div className="max-w-4xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl font-bold leading-tight">
+            <div className="flex flex-col items-center max-w-4xl mx-auto text-center">
+              <LogoHeader />
+              <h1 className="text-4xl md:text-5xl font-bold leading-tight text-shadow-lg/70">
                 Stake Wall
               </h1>
               <p className="mt-3 text-lg md:text-xl text-muted-foreground">
